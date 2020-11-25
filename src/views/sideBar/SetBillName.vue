@@ -31,13 +31,14 @@
     methods: {
       cancel(){
         this.$emit('cancel');
+        this.$refs.ruleForm.resetFields();
       },
       submitForm(formName){
         this.$refs[formName].validate((valid) => {
           if(valid){
             this.$emit('submitName', this.ruleForm.name);
           }else{
-            console.log('error submit');
+            this.$message.error('只能输入英文，请重新输入');
             return false;
           }
         });

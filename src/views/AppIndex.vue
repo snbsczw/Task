@@ -288,7 +288,7 @@
             if(cn.id === e.category){
               e.category = cn.name;
             }
-          })
+          });
         });
         this.getCateFilters();//获取category过滤选项数组
         // console.log(this.dataList);
