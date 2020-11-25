@@ -1,5 +1,4 @@
 <template>
-<!--  这个是最新一版-->
   <div>
     <el-container class="container">
       <el-aside class="el-aside">
@@ -163,10 +162,20 @@
       addNewBill(name){
         // console.log(Object.keys(this.allData));
         // console.log(Object.keys(this.allData).length);
-        this.allData[Object.keys(this.allData)[Object.keys(this.allData).length - 1]] = this.bill;
-        this.allData[name] = [];
-        this.bill = [];
-        this.GetCateFilters();
+        let pass = true;
+        for(let key in this.allData){
+          if(key === name){
+            this.$message.error('账单名字重复');
+            pass =false;
+            break;
+          }
+        }
+        if(pass){
+          this.allData[Object.keys(this.allData)[Object.keys(this.allData).length - 1]] = this.bill;
+          this.allData[name] = [];
+          this.bill = [];
+          this.getCateFilters();
+        }
       },
       /*
       添加数据相关函数
