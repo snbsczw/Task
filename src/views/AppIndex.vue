@@ -157,6 +157,7 @@
       getData(item){
         this.bill = this.allData[item];
         this.getCateFilters();
+        this.clearFilter();
       },
       //添加一个新账单并打开，需要将当前账单保存
       addNewBill(name){
@@ -193,6 +194,7 @@
         this.bill.push({category: msg[0],type: msg[1], amount: msg[2], time: msg[3]});
         this.getCateFilters();
         this.dialogFormVisible = false;
+        this.clearFilter();
       },
 
       /*
