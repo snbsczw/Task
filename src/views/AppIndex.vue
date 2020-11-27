@@ -266,6 +266,7 @@
         this.isMonthFilter = false;
         this.isCateFilter = false;
       },
+
     },
     created(){
       const d3 = require('d3-dsv');
